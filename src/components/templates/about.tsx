@@ -11,7 +11,7 @@ export function About() {
           <div className="flex flex-1 flex-col items-center gap-5 max-md:justify-center px-1">
             <motion.h1
               className="font-bold max-md:text-base whitespace-nowrap text-center text-2xl"
-              initial={{ y: -100, opacity: 0 }}
+              initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
@@ -36,7 +36,7 @@ export function About() {
             <img
               src={profileImage}
               alt="Vinicius Luna"
-              className="self-end h-[553px] max-md:h-[400px] max-md:max-w-xs"
+              className="self-end h-[553px] max-md:h-[400px]"
             />
           </div>
         </div>
