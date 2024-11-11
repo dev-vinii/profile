@@ -15,7 +15,7 @@ export function Header() {
           <li>
             <a
               href="#about"
-              className="opacity-50 cursor-pointer pb-1 border-b-2 border-solid border-transparent transition-all duration-300 hover:border-white"
+              className="opacity-50 cursor-pointer pb-1 border-b-2 border-solid border-transparent transition-all duration-300 hover:border-white line-through"
             >
               Habilidades
             </a>
@@ -23,7 +23,7 @@ export function Header() {
           <li>
             <a
               href="#about"
-              className="opacity-50 cursor-pointer pb-1 border-b-2 border-solid border-transparent transition-all duration-300 hover:border-white"
+              className="opacity-50 cursor-pointer pb-1 border-b-2 border-solid border-transparent transition-all duration-300 hover:border-white line-through"
             >
               Experiência
             </a>
