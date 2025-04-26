@@ -1,11 +1,9 @@
-import { Header } from "@/components/ui/organisms/header";
 import profileImage from "@/assets/vinicius.png";
 import { motion } from "framer-motion";
 
 export function About() {
   return (
-    <section className="flex flex-col w-screen h-screen text-white">
-      <Header />
+    <section className="flex flex-col w-screen h-[calc(100vh-4rem)] max-md:h-[calc(100vh-3.75rem)] text-white">
       <div className="h-full">
         <div className="flex items-center h-full justify-center gap-4 max-md:flex-col">
           <div className="flex flex-1 flex-col items-center gap-5 max-md:justify-center px-1">
@@ -23,7 +21,7 @@ export function About() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             >
-              Olá! Sou Vinicius, desenvolvedor brasileiro de 20 anos 🇧🇷,
+              Olá! Sou Vinicius, desenvolvedor brasileiro de 21 anos 🇧🇷,
               apaixonado por esportes 🏈 ⚽️ 🏎️ 🏀 e tecnologia. Atualmente
               trabalho com frontend usando React e Vue. Fiz também alguns
               projetos de back-end com Node.js e Java, buscando entender o
