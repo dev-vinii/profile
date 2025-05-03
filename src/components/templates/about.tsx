@@ -24,10 +24,10 @@ export function About() {
               Olá! Sou Vinicius, desenvolvedor brasileiro de 21 anos 🇧🇷,
               apaixonado por esportes 🏈 ⚽️ 🏎️ 🏀 e tecnologia. Atualmente
               trabalho com frontend usando React e Vue. Fiz também alguns
-              projetos de back-end com Node.js e Java, buscando entender o
+              projetos de back-end com Node.js, buscando entender o
               desenvolvimento completo de software. Gosto de criar soluções
               escaláveis, evoluindo sempre com práticas de clean code e boas
-              arquiteturas .
+              arquiteturas.
             </motion.p>
           </div>
           <div className="flex-1 flex justify-center w-full self-end">
