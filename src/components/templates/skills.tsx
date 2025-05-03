@@ -95,16 +95,19 @@ export function Skills() {
   ];
 
   return (
-    <section className="flex flex-col gap-5 w-screen h-[calc(100vh-4rem)] max-md:h-[calc(100vh-3.75rem)] text-white px-10 pb-5">
+    <section className="flex flex-col gap-5 w-screen h-[calc(100vh-4rem)] max-md:h-[calc(100vh-3.75rem)] text-white px-10 pb-5 ">
       <div className="flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold">Habilidades</h2>
       </div>
       {skills.map((skill, index) => (
-        <div key={index} className="flex flex-row gap-5 h-full">
+        <div
+          key={index}
+          className="grid grid-cols-2 md:grid-cols-4 gap-5 h-full"
+        >
           {skill.map((skill) => (
             <Card
               key={skill.name}
-              className="border border-white border-solid flex justify-center flex-col items-center flex-1 h-full"
+              className="border border-white border-solid flex justify-center flex-col items-center h-full"
             >
               <CardHeader>
                 <CardTitle className="text-2xl font-bold ">
