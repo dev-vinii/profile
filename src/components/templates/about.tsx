@@ -21,13 +21,11 @@ export function About() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             >
-              Olá! Sou Vinicius, desenvolvedor brasileiro de 21 anos 🇧🇷,
-              apaixonado por esportes 🏈 ⚽️ 🏎️ 🏀 e tecnologia. Atualmente
-              trabalho com frontend usando React e Vue. Fiz também alguns
-              projetos de back-end com Node.js, buscando entender o
-              desenvolvimento completo de software. Gosto de criar soluções
-              escaláveis, evoluindo sempre com práticas de clean code e boas
-              arquiteturas.
+              Olá! Sou Vinicius, desenvolvedor Full Stack brasileiro de 21 anos
+              🇧🇷, apaixonado por esportes 🏈 ⚽️ 🏎️ 🏀 e tecnologia. Atualmente
+              trabalho com frontend usando React e Vue, back-end com Node.js e
+              tenho experiência com AWS. Gosto de criar soluções escaláveis,
+              evoluindo sempre com práticas de clean code e boas arquiteturas.
             </motion.p>
           </div>
           <div className="flex-1 flex justify-center w-full self-end">
