@@ -11,7 +11,6 @@ export * from "./node-icon";
 export * from "./nuxt-icon";
 export * from "./postgres-icon";
 export * from "./react-icon";
-export * from "./tailwind-icon";
 export * from "./typescript-icon";
 export * from "./vitest.icon";
 export * from "./vue-icon";
