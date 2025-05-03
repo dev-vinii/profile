@@ -1,11 +1,29 @@
 import { About } from "@/components/templates/about";
-import { Header } from "./components/ui/organisms/header";
+import { useEffect, useState } from "react";
+import { Header } from "./components/templates/organisms/header";
+import { Skills } from "./components/templates/skills";
 function App() {
+  const [hash, setHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setHash(window.location.hash);
+      console.log(window.location.hash);
+    };
+
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
+
   return (
-    <main className="bg-[#00244D] overflow-y-auto overflow-x-hidden">
+    <main className="bg-[#00244D] overflow-y-hidden overflow-x-hidden">
       <Header />
       <div>
-        <About />
+        {hash === "#about" && <About />}
+        {hash === "#skills" && <Skills />}
       </div>
     </main>
   );
