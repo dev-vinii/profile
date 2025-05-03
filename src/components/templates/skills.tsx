@@ -12,7 +12,6 @@ import {
   NuxtIcon,
   PostgresIcon,
   ReactIcon,
-  TailwindIcon,
   TypescriptIcon,
   VitestIcon,
   VueIcon,
@@ -38,10 +37,6 @@ export function Skills() {
         name: "Nuxt",
         icon: <NuxtIcon />,
       },
-      {
-        name: "Tailwind",
-        icon: <TailwindIcon />,
-      },
     ],
     [
       {
@@ -60,10 +55,6 @@ export function Skills() {
         name: "Nest",
         icon: <NestIcon />,
       },
-      {
-        name: "Fastify",
-        icon: <FastifyIcon />,
-      },
     ],
     [
       {
@@ -78,6 +69,10 @@ export function Skills() {
         name: "MongoDB",
         icon: <MongoDBIcon />,
       },
+      {
+        name: "Fastify",
+        icon: <FastifyIcon />,
+      },
     ],
     [
       {
@@ -88,8 +83,6 @@ export function Skills() {
         name: "AWS",
         icon: <AwsIcon />,
       },
-    ],
-    [
       {
         name: "Vitest",
         icon: <VitestIcon />,
