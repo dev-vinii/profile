@@ -8,7 +8,6 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       setHash(window.location.hash);
-      console.log(window.location.hash);
     };
 
     window.addEventListener("hashchange", handleHashChange);
