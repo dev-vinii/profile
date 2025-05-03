@@ -99,10 +99,13 @@ export function Skills() {
       <div className="flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold">Habilidades</h2>
       </div>
-      {skills.map((skill) => (
-        <div className="flex flex-row gap-5 h-full">
+      {skills.map((skill, index) => (
+        <div key={index} className="flex flex-row gap-5 h-full">
           {skill.map((skill) => (
-            <Card className="border border-white border-solid flex justify-center flex-col items-center flex-1 h-full">
+            <Card
+              key={skill.name}
+              className="border border-white border-solid flex justify-center flex-col items-center flex-1 h-full"
+            >
               <CardHeader>
                 <CardTitle className="text-2xl font-bold ">
                   {skill.name}
