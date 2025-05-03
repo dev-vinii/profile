@@ -21,7 +21,7 @@ function App() {
     <main className="bg-[#00244D] overflow-y-hidden overflow-x-hidden">
       <Header />
       <div>
-        {hash === "#about" && <About />}
+        {(hash === "#about" || hash === "") && <About />}
         {hash === "#skills" && <Skills />}
       </div>
     </main>
