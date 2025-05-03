@@ -95,7 +95,7 @@ export function Skills() {
   ];
 
   return (
-    <section className="flex flex-col gap-5 w-screen h-[calc(100vh-4rem)] max-md:h-[calc(100vh-3.75rem)] text-white px-10 pb-5 ">
+    <section className="flex flex-col gap-5 w-screen h-[calc(100dvh-4rem)] max-md:h-[calc(100dvh-3.75rem)] text-white px-10 pb-5 ">
       <div className="flex flex-col items-center justify-center">
         <h2 className="text-2xl font-bold">Habilidades</h2>
       </div>

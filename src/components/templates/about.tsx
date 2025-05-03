@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export function About() {
   return (
-    <section className="flex flex-col w-screen h-[calc(100vh-4rem)] max-md:h-[calc(100vh-3.75rem)] text-white">
+    <section className="flex flex-col w-screen h-[calc(100dvh-4rem)] max-md:h-[calc(100dvh-3.75rem)] text-white">
       <div className="h-full">
         <div className="flex items-center h-full justify-center gap-4 max-md:flex-col">
           <div className="flex flex-1 flex-col items-center gap-5 max-md:justify-center px-1">
