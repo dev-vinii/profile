@@ -1,50 +1,59 @@
-# React + TypeScript + Vite
+# Perfil Pessoal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de perfil pessoal desenvolvido com React, TypeScript e Vite. O projeto utiliza tecnologias modernas para criar uma experiência de usuário fluida e responsiva.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias Utilizadas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React 18
+- TypeScript
+- Vite
+- TailwindCSS
+- Framer Motion
+- ESLint
 
-## Expanding the ESLint configuration
+## 📋 Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Node.js (versão 18 ou superior)
+- pnpm (gerenciador de pacotes)
 
-- Configure the top-level `parserOptions` property like this:
+## 🔧 Instalação
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone o repositório:
+
+```bash
+git clone [URL_DO_REPOSITÓRIO]
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Instale as dependências:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+pnpm install
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+3. Inicie o servidor de desenvolvimento:
+
+```bash
+pnpm dev
+```
+
+## 🛠️ Scripts Disponíveis
+
+- `pnpm dev`: Inicia o servidor de desenvolvimento
+- `pnpm build`: Cria a build de produção
+- `pnpm preview`: Previa a build de produção localmente
+- `pnpm lint`: Executa o linter para verificar a qualidade do código
+
+## 📁 Estrutura do Projeto
+
+```
+profile/
+├── src/            # Código fonte
+├── public/         # Arquivos estáticos
+├── node_modules/   # Dependências
+├── .gitignore      # Arquivos ignorados pelo git
+├── index.html      # Ponto de entrada HTML
+├── package.json    # Configurações e dependências
+├── tsconfig.json   # Configurações do TypeScript
+├── vite.config.ts  # Configurações do Vite
+└── tailwind.config.js # Configurações do TailwindCSS
 ```
