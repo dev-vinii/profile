@@ -2,6 +2,7 @@ import { About } from "@/components/templates/about";
 import { useEffect, useState } from "react";
 import { Header } from "./components/templates/organisms/header";
 import { Skills } from "./components/templates/skills";
+
 function App() {
   const [hash, setHash] = useState(window.location.hash);
 
@@ -18,9 +19,9 @@ function App() {
   }, []);
 
   return (
-    <main className="bg-[#00244D] overflow-y-hidden overflow-x-hidden">
+    <main className="bg-[#00244D] h-screen flex flex-col overflow-hidden">
       <Header />
-      <div>
+      <div className="flex-1 transition-all duration-500 ease-in-out overflow-hidden">
         {(hash === "#about" || hash === "") && <About />}
         {hash === "#skills" && <Skills />}
       </div>
