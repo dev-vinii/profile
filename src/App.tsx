@@ -1,32 +1,16 @@
-import { About } from "@/components/templates/about";
-import { useEffect, useState } from "react";
-import { Header } from "./components/templates/organisms/header";
-import { Skills } from "./components/templates/skills";
+import { Deck } from "./components/ui/deck";
 
-function App() {
-  const [hash, setHash] = useState(window.location.hash);
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      setHash(window.location.hash);
-    };
-
-    window.addEventListener("hashchange", handleHashChange);
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
-  }, []);
-
+export function App() {
   return (
-    <main className="bg-[#00244D] h-screen flex flex-col overflow-hidden">
-      <Header />
-      <div className="flex-1 transition-all duration-500 ease-in-out overflow-hidden">
-        {(hash === "#about" || hash === "") && <About />}
-        {hash === "#skills" && <Skills />}
-      </div>
+    <main className="bg-felt h-screen flex flex-col overflow-hidden">
+      <section className="h-full"></section>
+      <section className="h-3/6">
+        <div className="flex w-full justify-center gap-9 h-full">
+          <Deck />
+          <Deck />
+          <Deck />
+        </div>
+      </section>
     </main>
   );
 }
-
-export { App };
