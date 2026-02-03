@@ -95,19 +95,16 @@ export function Hand({ cards, onCardClick }: Props) {
             key={card.id}
             initial={{ opacity: 0, y: 120, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
+            whileHover={{ scale: 1.05, y: -8 }}
             transition={{
               duration: 0.5,
               ease: "easeOut",
               delay: 0.1,
             }}
-            className="w-28 h-40 sm:w-36 sm:h-52 lg:w-56 lg:h-[314px]"
+            className="w-28 h-40 sm:w-36 sm:h-52 lg:w-56 lg:h-[314px] cursor-pointer"
+            onClick={() => onCardClick(card)}
           >
-            <Card
-              flipped
-              suit={card.suit}
-              className="w-full h-full cursor-pointer"
-              onClick={() => onCardClick(card)}
-            >
+            <Card flipped suit={card.suit} className="w-full h-full">
               {cardContent[card.title]}
             </Card>
           </motion.div>

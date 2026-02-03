@@ -77,6 +77,8 @@ const modalContent: Record<string, React.ReactNode> = {
 };
 
 export function Modal({ card, onClose }: Props) {
+  const isRed = card?.suit === "♥" || card?.suit === "♦";
+
   return (
     <AnimatePresence>
       {card && (
@@ -89,19 +91,35 @@ export function Modal({ card, onClose }: Props) {
         >
           <div className="absolute inset-0 bg-black/60" onClick={onClose} />
           <motion.div
-            className="relative bg-white rounded-xl p-6 mx-4 max-w-md w-full shadow-2xl border border-gray-200"
+            className="relative bg-white rounded-xl mx-4 max-w-md w-full shadow-2xl border border-gray-300 overflow-hidden"
             initial={{ scale: 0.8, y: 40 }}
             animate={{ scale: 1, y: 0 }}
             exit={{ scale: 0.8, y: 40 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
-            <button
-              onClick={onClose}
-              className="absolute top-3 right-3 text-gray-400 hover:text-gray-700 text-lg"
-            >
-              ✕
-            </button>
-            {modalContent[card.title]}
+            {/* Card suit header */}
+            <div className="flex items-center justify-between px-5 pt-4 pb-2">
+              <span
+                className={`text-2xl font-bold ${isRed ? "text-red-600" : "text-gray-900"}`}
+              >
+                {card.suit} {card.title}
+              </span>
+              <button
+                onClick={onClose}
+                className="text-gray-400 hover:text-gray-700 text-lg"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="px-5 pb-5">{modalContent[card.title]}</div>
+            {/* Bottom suit */}
+            <div className="flex justify-end px-5 pb-3">
+              <span
+                className={`text-lg font-bold rotate-180 ${isRed ? "text-red-600" : "text-gray-900"}`}
+              >
+                {card.suit}
+              </span>
+            </div>
           </motion.div>
         </motion.div>
       )}

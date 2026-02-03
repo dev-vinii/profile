@@ -24,13 +24,29 @@ export function App() {
       <section className="flex-1">
         <Hand cards={revealedCards} onCardClick={setSelectedCard} />
       </section>
+
       <section className="h-3/6">
-        <div className="flex w-full justify-center h-full">
-          {deckCards.length > 0 && (
-            <Deck cards={deckCards} onDraw={handleDeckClick} />
+        <div className="flex flex-col w-full items-center justify-center h-full gap-3">
+          {deckCards.length > 0 ? (
+            <>
+              <Deck cards={deckCards} onDraw={handleDeckClick} />
+              {revealedCards.length === 0 && (
+                <p className="text-white/60 text-sm mt-2 animate-pulse">
+                  Clique no deck para revelar
+                </p>
+              )}
+            </>
+          ) : (
+            <button
+              onClick={() => setRevealedCards([])}
+              className="text-white/70 hover:text-white border border-white/30 hover:border-white/60 px-4 py-2 rounded-lg text-sm transition-colors"
+            >
+              Recomeçar
+            </button>
           )}
         </div>
       </section>
+
       <Modal card={selectedCard} onClose={() => setSelectedCard(null)} />
     </main>
   );
