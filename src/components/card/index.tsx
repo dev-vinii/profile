@@ -1,21 +1,24 @@
 import cardBack from "@/assets/card/red-card.svg";
+import { Suit } from "@/types/card";
 import { motion } from "framer-motion";
-import { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<{
   flipped?: boolean;
-  suit?: "♥" | "♦" | "♠" | "♣";
+  suit?: Suit;
 }> &
   React.HTMLAttributes<HTMLDivElement>;
 
 export function Card({
   flipped,
-  suit = "♥",
+  suit = Suit.Hearts,
   children,
   className,
   ...props
 }: Props) {
-  const isRed = suit === "♥" || suit === "♦";
+  const isRed = React.useCallback(() => {
+    return suit === Suit.Hearts || suit === Suit.Diamonds;
+  }, [suit]);
 
   if (!flipped) {
     return (
@@ -41,7 +44,6 @@ export function Card({
         animate={{ rotateY: 180 }}
         transition={{ duration: 0.8, ease: "easeInOut", delay: 0.3 }}
       >
-        {/* Back */}
         <div
           className="absolute w-full h-full"
           style={{ backfaceVisibility: "hidden" }}
@@ -53,7 +55,6 @@ export function Card({
           />
         </div>
 
-        {/* Front */}
         <div
           className="absolute w-full h-full rounded-lg border border-gray-300 bg-white text-gray-900 p-3 shadow-md"
           style={{
@@ -62,7 +63,7 @@ export function Card({
           }}
         >
           <span
-            className={`absolute top-1.5 left-2 text-xs sm:text-sm lg:text-base font-bold ${isRed ? "text-red-600" : "text-gray-900"}`}
+            className={`absolute top-1.5 left-2 text-xs sm:text-sm lg:text-base font-bold ${isRed() ? "text-red-600" : "text-gray-900"}`}
           >
             {suit}
           </span>
@@ -70,7 +71,7 @@ export function Card({
             {children}
           </div>
           <span
-            className={`absolute bottom-1.5 right-2 text-xs sm:text-sm lg:text-base font-bold rotate-180 ${isRed ? "text-red-600" : "text-gray-900"}`}
+            className={`absolute bottom-1.5 right-2 text-xs sm:text-sm lg:text-base font-bold rotate-180 ${isRed() ? "text-red-600" : "text-gray-900"}`}
           >
             {suit}
           </span>

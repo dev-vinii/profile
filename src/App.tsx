@@ -30,11 +30,9 @@ export function App() {
           {deckCards.length > 0 ? (
             <>
               <Deck cards={deckCards} onDraw={handleDeckClick} />
-              {revealedCards.length === 0 && (
-                <p className="text-white/60 text-sm mt-2 animate-pulse">
-                  Clique no deck para revelar
-                </p>
-              )}
+              <p className="text-white/60 text-sm mt-2 animate-pulse">
+                Clique no deck para revelar
+              </p>
             </>
           ) : (
             <button
