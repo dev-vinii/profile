@@ -15,10 +15,13 @@ export function Deck({ cards, onDraw }: Props) {
       onClick={onDraw}
     >
       {cards.map((_, i) => (
-        <Card
+        <div
           key={i}
-          style={{ top: `${i * 4}px`, left: 0, position: "absolute" }}
-        />
+          className="absolute w-full h-full"
+          style={{ top: `${i * 4}px`, left: 0 }}
+        >
+          <Card />
+        </div>
       ))}
     </div>
   );

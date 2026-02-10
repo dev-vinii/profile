@@ -9,7 +9,7 @@ type Props = {
 
 export function Hand({ cards, onCardClick }: Props) {
   return (
-    <div className="flex justify-center items-center gap-2 sm:gap-3 lg:gap-4 h-full px-2">
+    <div className="flex justify-center items-center gap-2 sm:gap-3 lg:gap-4 h-full px-2 flex-nowrap overflow-hidden">
       <AnimatePresence>
         {cards.map((card) => (
           <motion.div
@@ -22,10 +22,17 @@ export function Hand({ cards, onCardClick }: Props) {
               ease: "easeOut",
               delay: 0.1,
             }}
-            className="w-28 h-40 sm:w-36 sm:h-52 lg:w-56 lg:h-[314px] cursor-pointer"
+            className="w-28 h-40 sm:w-36 sm:h-52 lg:w-56 lg:h-[314px] max-h-full shrink-0 cursor-pointer"
             onClick={() => onCardClick(card)}
           >
-            <Card flipped suit={card.suit} className="w-full h-full">
+            <Card
+              flipped
+              rarity={card.rarity}
+              position={card.position}
+              rating={card.rating}
+              stats={card.stats}
+              className="w-full h-full"
+            >
               {card.cardContent}
             </Card>
           </motion.div>

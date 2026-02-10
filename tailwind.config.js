@@ -4,14 +4,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        felt: "#0a5c2a",
+        fut: {
+          dark: "#0a0a1a",
+          navy: "#0f1629",
+          accent: "#e94560",
+        },
       },
       backgroundImage: {
-        "felt-table":
-          "radial-gradient(ellipse at center, #1a7a3a 0%, #0a5c2a 40%, #064a1e 70%, #03300f 100%)",
+        "fut-field":
+          "radial-gradient(ellipse at center, #1a1a3e 0%, #0f1629 40%, #0a0a1a 70%, #050510 100%)",
       },
       boxShadow: {
-        "table-edge": "inset 0 0 80px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.3)",
+        "fut-edge":
+          "inset 0 0 80px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.3)",
       },
     },
   },

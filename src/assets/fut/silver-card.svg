@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 340" fill="none">
+  <defs>
+    <linearGradient id="silverGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8e8e8"/>
+      <stop offset="30%" stop-color="#c0c0c0"/>
+      <stop offset="60%" stop-color="#a8a8a8"/>
+      <stop offset="100%" stop-color="#787878"/>
+    </linearGradient>
+    <linearGradient id="silverShine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="silverInner" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d0d0d0"/>
+      <stop offset="100%" stop-color="#909090"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="240" height="340" rx="16" fill="url(#silverGrad)"/>
+  <rect x="0" y="0" width="240" height="340" rx="16" fill="url(#silverShine)"/>
+  <rect x="8" y="8" width="224" height="324" rx="12" fill="none" stroke="#b0b0b0" stroke-width="0.5" opacity="0.6"/>
+
+  <path d="M20,20 L80,20 L80,80 L50,95 L20,80 Z" fill="url(#silverInner)" opacity="0.4"/>
+  <path d="M20,20 L80,20 L80,80 L50,95 L20,80 Z" fill="none" stroke="#b0b0b0" stroke-width="0.5" opacity="0.5"/>
+
+  <path d="M40,100 L200,100 L200,200 L120,215 L40,200 Z" fill="url(#silverInner)" opacity="0.15"/>
+  <path d="M40,100 L200,100 L200,200 L120,215 L40,200 Z" fill="none" stroke="#b0b0b0" stroke-width="0.5" opacity="0.3"/>
+
+  <rect x="30" y="222" width="180" height="24" rx="2" fill="url(#silverInner)" opacity="0.2"/>
+  <line x1="30" y1="222" x2="210" y2="222" stroke="#b0b0b0" stroke-width="0.5" opacity="0.5"/>
+  <line x1="30" y1="246" x2="210" y2="246" stroke="#b0b0b0" stroke-width="0.5" opacity="0.3"/>
+
+  <line x1="120" y1="260" x2="120" y2="310" stroke="#b0b0b0" stroke-width="0.5" opacity="0.3"/>
+  <line x1="35" y1="270" x2="110" y2="270" stroke="#b0b0b0" stroke-width="0.3" opacity="0.2"/>
+  <line x1="35" y1="285" x2="110" y2="285" stroke="#b0b0b0" stroke-width="0.3" opacity="0.2"/>
+  <line x1="35" y1="300" x2="110" y2="300" stroke="#b0b0b0" stroke-width="0.3" opacity="0.2"/>
+  <line x1="130" y1="270" x2="205" y2="270" stroke="#b0b0b0" stroke-width="0.3" opacity="0.2"/>
+  <line x1="130" y1="285" x2="205" y2="285" stroke="#b0b0b0" stroke-width="0.3" opacity="0.2"/>
+  <line x1="130" y1="300" x2="205" y2="300" stroke="#b0b0b0" stroke-width="0.3" opacity="0.2"/>
+
+  <line x1="60" y1="325" x2="180" y2="325" stroke="#b0b0b0" stroke-width="0.5" opacity="0.3"/>
+  <rect x="0" y="0" width="240" height="340" rx="16" fill="none" stroke="#b0b0b0" stroke-width="1.5" opacity="0.4"/>
+</svg>

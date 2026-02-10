@@ -1,11 +1,21 @@
 import profilePic from "@/assets/vinicius.png";
-import { CardData, Suit } from "@/types/card";
+import { CardData, CardRarity } from "@/types/card";
 
 export const cards: CardData[] = [
   {
     id: 1,
-    suit: Suit.Spades,
+    rarity: CardRarity.Icon,
+    position: "DEV",
+    rating: 99,
     title: "About",
+    stats: [
+      { label: "FRO", value: 95 },
+      { label: "BAC", value: 92 },
+      { label: "DEV", value: 90 },
+      { label: "OPS", value: 88 },
+      { label: "ARC", value: 93 },
+      { label: "COM", value: 91 },
+    ],
     content: (
       <div className="space-y-3">
         <h2 className="text-xl font-bold">Sobre mim</h2>
@@ -19,16 +29,16 @@ export const cards: CardData[] = [
       </div>
     ),
     cardContent: (
-      <div className="flex flex-col items-center justify-center h-full gap-1 lg:gap-2 text-center">
+      <div className="flex flex-col items-center justify-center h-full gap-1 lg:gap-2 text-center drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
         <img
           src={profilePic}
           alt="Vinicius Luna"
-          className="w-10 h-10 sm:w-14 sm:h-14 lg:w-20 lg:h-20 rounded-full"
+          className="w-10 h-10 sm:w-14 sm:h-14 lg:w-20 lg:h-20 rounded-full border-2 border-yellow-600 shadow-md"
         />
-        <h2 className="text-xs sm:text-sm lg:text-lg font-bold">
+        <h2 className="text-xs sm:text-sm lg:text-lg font-extrabold text-gray-900">
           Vinicius Luna
         </h2>
-        <p className="text-[10px] sm:text-xs lg:text-sm text-gray-500">
+        <p className="text-[10px] sm:text-xs lg:text-sm font-semibold text-gray-800">
           Full Stack Developer
         </p>
         <div className="flex gap-2 mt-1">
@@ -36,7 +46,7 @@ export const cards: CardData[] = [
             href="https://github.com/dev-vinii"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-gray-900 underline text-xs lg:text-sm"
+            className="font-bold text-gray-900 hover:text-black underline text-xs lg:text-sm"
           >
             GitHub
           </a>
@@ -44,7 +54,7 @@ export const cards: CardData[] = [
             href="https://www.linkedin.com/in/viniciusluna17/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-gray-900 underline text-xs lg:text-sm"
+            className="font-bold text-gray-900 hover:text-black underline text-xs lg:text-sm"
           >
             LinkedIn
           </a>
@@ -54,8 +64,18 @@ export const cards: CardData[] = [
   },
   {
     id: 2,
-    suit: Suit.Diamonds,
+    rarity: CardRarity.Gold,
+    position: "CAM",
+    rating: 92,
     title: "Skills",
+    stats: [
+      { label: "RCT", value: 96 },
+      { label: "VUE", value: 90 },
+      { label: "NDE", value: 93 },
+      { label: "TSC", value: 95 },
+      { label: "AWS", value: 85 },
+      { label: "KFK", value: 88 },
+    ],
     content: (
       <div className="space-y-3">
         <h2 className="text-xl font-bold">Skills</h2>
@@ -84,8 +104,10 @@ export const cards: CardData[] = [
       </div>
     ),
     cardContent: (
-      <div className="flex flex-col items-center justify-center h-full gap-1 lg:gap-2 text-center">
-        <h2 className="text-xs sm:text-sm lg:text-lg font-bold">Skills</h2>
+      <div className="flex flex-col items-center justify-center h-full gap-1 lg:gap-2 text-center drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
+        <h2 className="text-xs sm:text-sm lg:text-lg font-extrabold text-gray-900">
+          Skills
+        </h2>
         <div className="flex flex-wrap justify-center gap-1">
           {[
             "React",
@@ -99,7 +121,7 @@ export const cards: CardData[] = [
           ].map((skill) => (
             <span
               key={skill}
-              className="text-[8px] sm:text-[10px] lg:text-xs bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded"
+              className="text-[8px] sm:text-[10px] lg:text-xs font-bold bg-black/30 text-white px-1.5 py-0.5 rounded"
             >
               {skill}
             </span>
@@ -110,8 +132,18 @@ export const cards: CardData[] = [
   },
   {
     id: 3,
-    suit: Suit.Clubs,
+    rarity: CardRarity.Gold,
+    position: "CDM",
+    rating: 90,
     title: "Experience",
+    stats: [
+      { label: "API", value: 94 },
+      { label: "MCS", value: 91 },
+      { label: "EVT", value: 89 },
+      { label: "SCL", value: 93 },
+      { label: "OPT", value: 90 },
+      { label: "DLV", value: 92 },
+    ],
     content: (
       <div className="space-y-3">
         <h2 className="text-xl font-bold">Experiência</h2>
@@ -124,9 +156,11 @@ export const cards: CardData[] = [
       </div>
     ),
     cardContent: (
-      <div className="flex flex-col items-center justify-center h-full gap-1 lg:gap-2 text-center">
-        <h2 className="text-xs sm:text-sm lg:text-lg font-bold">Experience</h2>
-        <p className="text-[8px] sm:text-[10px] lg:text-xs text-gray-600">
+      <div className="flex flex-col items-center justify-center h-full gap-1 lg:gap-2 text-center drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
+        <h2 className="text-xs sm:text-sm lg:text-lg font-extrabold text-gray-900">
+          Experience
+        </h2>
+        <p className="text-[8px] sm:text-[10px] lg:text-xs font-semibold text-gray-800">
           Aplicações escaláveis, APIs performáticas, microserviços e soluções
           orientadas a resultado de negócio.
         </p>
@@ -135,8 +169,18 @@ export const cards: CardData[] = [
   },
   {
     id: 4,
-    suit: Suit.Spades,
+    rarity: CardRarity.Silver,
+    position: "GK",
+    rating: 88,
     title: "Education",
+    stats: [
+      { label: "ADS", value: 90 },
+      { label: "MBA", value: 88 },
+      { label: "ENG", value: 86 },
+      { label: "RSC", value: 82 },
+      { label: "CRT", value: 85 },
+      { label: "LRN", value: 94 },
+    ],
     content: (
       <div className="space-y-3">
         <h2 className="text-xl font-bold">Formação</h2>
@@ -157,12 +201,14 @@ export const cards: CardData[] = [
       </div>
     ),
     cardContent: (
-      <div className="flex flex-col items-center justify-center h-full gap-1 lg:gap-2 text-center">
-        <h2 className="text-xs sm:text-sm lg:text-lg font-bold">Education</h2>
-        <p className="text-[8px] sm:text-[10px] lg:text-xs text-gray-600">
+      <div className="flex flex-col items-center justify-center h-full gap-1 lg:gap-2 text-center drop-shadow-[0_1px_1px_rgba(255,255,255,0.3)]">
+        <h2 className="text-xs sm:text-sm lg:text-lg font-extrabold text-gray-900">
+          Education
+        </h2>
+        <p className="text-[8px] sm:text-[10px] lg:text-xs font-semibold text-gray-800">
           Análise e Desenvolvimento de Sistemas
         </p>
-        <p className="text-[8px] sm:text-[10px] lg:text-xs text-gray-600">
+        <p className="text-[8px] sm:text-[10px] lg:text-xs font-semibold text-gray-800">
           MBA Engenharia de Software
         </p>
       </div>
