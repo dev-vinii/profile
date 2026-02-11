@@ -1,56 +1,82 @@
-import React from "react";
-import { Deck } from "./components/deck";
-import { Hand } from "./components/hand";
-import { Modal } from "./components/modal";
-import { cards } from "./data/cards";
-import { CardData } from "./types/card";
+import { AnimatePresence, motion } from "framer-motion";
+import { useCallback, useState } from "react";
+import { ArrowButton } from "./components/arrow-button";
+import { LanguageSwitcher } from "./components/language-switcher";
+import { Direction, pages } from "./pages";
+
+const slideVariants = {
+  enter: (dir: Direction) => ({
+    x: dir === "right" ? "100%" : dir === "left" ? "-100%" : 0,
+    y: dir === "down" ? "100%" : dir === "up" ? "-100%" : 0,
+  }),
+  center: { x: 0, y: 0 },
+  exit: (dir: Direction) => ({
+    x: dir === "right" ? "-100%" : dir === "left" ? "100%" : 0,
+    y: dir === "down" ? "-100%" : dir === "up" ? "100%" : 0,
+  }),
+};
 
 export function App() {
-  const [revealedCards, setRevealedCards] = React.useState<CardData[]>([]);
-  const [selectedCard, setSelectedCard] = React.useState<CardData | null>(null);
+  const [pageId, setPageId] = useState("home");
+  const [direction, setDirection] = useState<Direction>("right");
 
-  const deckCards = cards.filter(
-    (c) => !revealedCards.some((r) => r.id === c.id),
-  );
+  const page = pages[pageId];
+  const PageComponent = page.component;
+  const { neighbors } = page;
+  const isDark = page.bg.includes("200");
 
-  function handleDeckClick() {
-    if (deckCards.length === 0) return;
-    const nextCard = deckCards[0];
-    setRevealedCards((prev) => [...prev, nextCard]);
-  }
+  const navigate = useCallback((dir: Direction, target: string) => {
+    setDirection(dir);
+    setPageId(target);
+  }, []);
 
   return (
-    <main className="bg-fut-field h-screen flex flex-col overflow-hidden shadow-fut-edge">
-      <p className="text-white/70 text-xs sm:text-sm text-center pt-4 tracking-wide">
-        Meu portfólio no estilo Ultimate Team — abra o pack e descubra minhas
-        cartas
-      </p>
+    <main className="w-screen h-screen overflow-auto relative bg-gray-950">
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={pageId}
+          custom={direction}
+          variants={slideVariants}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+          className={`absolute inset-0 flex items-center justify-center ${page.bg} ${page.textColor}`}
+        >
+          <PageComponent />
+        </motion.div>
+      </AnimatePresence>
 
-      <section className="flex-1 min-h-0 overflow-hidden">
-        <Hand cards={revealedCards} onCardClick={setSelectedCard} />
-      </section>
+      <LanguageSwitcher dark={isDark} />
 
-      <section className="h-3/6">
-        <div className="flex flex-col w-full items-center justify-center h-full gap-3 flex-wrap">
-          {deckCards.length > 0 ? (
-            <>
-              <Deck cards={deckCards} onDraw={handleDeckClick} />
-              <p className="text-white/60 text-sm mt-2 animate-pulse">
-                Clique no pack para revelar
-              </p>
-            </>
-          ) : (
-            <button
-              onClick={() => setRevealedCards([])}
-              className="text-white/70 hover:text-white border border-white/30 hover:border-white/60 px-4 py-2 rounded-lg text-sm transition-colors"
-            >
-              Abrir novo pack
-            </button>
-          )}
-        </div>
-      </section>
-
-      <Modal card={selectedCard} onClose={() => setSelectedCard(null)} />
+      {neighbors.up && (
+        <ArrowButton
+          direction="up"
+          dark={isDark}
+          onClick={() => navigate("up", neighbors.up!)}
+        />
+      )}
+      {neighbors.down && (
+        <ArrowButton
+          direction="down"
+          dark={isDark}
+          onClick={() => navigate("down", neighbors.down!)}
+        />
+      )}
+      {neighbors.left && (
+        <ArrowButton
+          direction="left"
+          dark={isDark}
+          onClick={() => navigate("left", neighbors.left!)}
+        />
+      )}
+      {neighbors.right && (
+        <ArrowButton
+          direction="right"
+          dark={isDark}
+          onClick={() => navigate("right", neighbors.right!)}
+        />
+      )}
     </main>
   );
 }
