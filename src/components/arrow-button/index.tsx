@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 type Direction = "up" | "down" | "left" | "right";
 
 const positionClasses: Record<Direction, string> = {
-  up: "top-4 left-1/2 -translate-x-1/2",
-  down: "bottom-4 left-1/2 -translate-x-1/2",
-  left: "left-4 top-1/2 -translate-y-1/2",
-  right: "right-4 top-1/2 -translate-y-1/2",
+  up: "top-4 inset-x-0 mx-auto w-fit",
+  down: "bottom-4 inset-x-0 mx-auto w-fit",
+  left: "left-4 top-[50dvh] -translate-y-1/2",
+  right: "right-4 top-[50dvh] -translate-y-1/2",
 };
 
 const chevronPaths: Record<Direction, string> = {
@@ -35,7 +35,7 @@ export function ArrowButton({ direction, onClick, dark }: ArrowButtonProps) {
       onClick={onClick}
       animate={pulseAxis[direction]}
       transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      className={`absolute ${positionClasses[direction]} p-4 hover:scale-125 active:scale-125 transition-transform cursor-pointer z-10 ${dark ? "text-gray-900" : "text-white"}`}
+      className={`fixed ${positionClasses[direction]} p-4 hover:scale-125 active:scale-125 transition-transform cursor-pointer z-10 ${dark ? "text-gray-900" : "text-white"}`}
     >
       <svg
         width="36"

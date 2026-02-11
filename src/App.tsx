@@ -31,7 +31,7 @@ export function App() {
   }, []);
 
   return (
-    <main className="w-screen h-screen overflow-auto relative bg-gray-950">
+    <main className="w-screen h-[100dvh] overflow-auto relative bg-gray-950">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={pageId}

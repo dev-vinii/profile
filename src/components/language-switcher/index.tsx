@@ -14,7 +14,7 @@ export function LanguageSwitcher({ dark }: LanguageSwitcherProps) {
   const { i18n } = useTranslation();
 
   return (
-    <div className="absolute top-4 right-4 z-10 flex gap-2">
+    <div className="fixed top-4 right-4 z-10 flex gap-2">
       {languages.map(({ code, flag }) => (
         <button
           key={code}
