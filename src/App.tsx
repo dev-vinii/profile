@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ArrowButton } from "./components/arrow-button";
 import { LanguageSwitcher } from "./components/language-switcher";
 import { Direction, pages } from "./pages";
@@ -29,6 +29,28 @@ export function App() {
     setDirection(dir);
     setPageId(target);
   }, []);
+
+  useEffect(() => {
+    const keyToDirection: Record<string, Direction> = {
+      ArrowUp: "up",
+      ArrowDown: "down",
+      ArrowLeft: "left",
+      ArrowRight: "right",
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const dir = keyToDirection[e.key];
+      if (!dir) return;
+      const target = pages[pageId].neighbors[dir];
+      if (target) {
+        e.preventDefault();
+        navigate(dir, target);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [pageId, navigate]);
 
   return (
     <main className="w-screen h-[100dvh] overflow-auto relative bg-gray-950">
