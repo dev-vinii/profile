@@ -63,4 +63,7 @@ export const es = {
     title: "Contacto",
     location: "São Paulo, SP",
   },
+  nav: {
+    keyboardHint: "También puedes usar las flechas del teclado para navegar",
+  },
 };

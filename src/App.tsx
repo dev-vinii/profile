@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { ArrowButton } from "./components/arrow-button";
 import { LanguageSwitcher } from "./components/language-switcher";
 import { Direction, pages } from "./pages";
@@ -17,6 +18,7 @@ const slideVariants = {
 };
 
 export function App() {
+  const { t } = useTranslation();
   const [pageId, setPageId] = useState("home");
   const [direction, setDirection] = useState<Direction>("right");
 
@@ -70,6 +72,10 @@ export function App() {
       </AnimatePresence>
 
       <LanguageSwitcher dark={isDark} />
+
+      <p className={`absolute bottom-4 left-1/2 -translate-x-1/2 text-sm opacity-60 whitespace-nowrap pointer-events-none ${isDark ? "text-gray-900" : "text-white"}`}>
+        {t("nav.keyboardHint")}
+      </p>
 
       {neighbors.up && (
         <ArrowButton

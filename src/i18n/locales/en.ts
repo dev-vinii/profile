@@ -63,4 +63,7 @@ export const en = {
     title: "Contact",
     location: "São Paulo, SP",
   },
+  nav: {
+    keyboardHint: "You can also use your keyboard arrows to navigate",
+  },
 };

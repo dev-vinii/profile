@@ -63,4 +63,7 @@ export const pt = {
     title: "Contato",
     location: "São Paulo, SP",
   },
+  nav: {
+    keyboardHint: "Você também pode usar as setas do teclado para navegar",
+  },
 };
