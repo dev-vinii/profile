@@ -14,8 +14,8 @@ const links = [
   },
   {
     label: "GitHub",
-    value: "viniciusluna",
-    href: "https://github.com/viniciusluna",
+    value: "dev-vinii",
+    href: "https://github.com/dev-vinii",
   },
 ];
 
