@@ -11,14 +11,16 @@ export interface PageEntry {
   component: ComponentType;
   bg: string;
   textColor: string;
+  isDark: boolean;
   neighbors: Partial<Record<Direction, string>>;
 }
 
 export const pages: Record<string, PageEntry> = {
   home: {
     component: Home,
-    bg: "bg-gray-200",
-    textColor: "text-gray-900",
+    bg: "bg-[#EDE8DB]",
+    textColor: "text-[#1B1916]",
+    isDark: false,
     neighbors: {
       up: "skills",
       down: "contact",
@@ -28,26 +30,30 @@ export const pages: Record<string, PageEntry> = {
   },
   skills: {
     component: Skills,
-    bg: "bg-gray-800",
-    textColor: "text-gray-100",
+    bg: "bg-[#1B1916]",
+    textColor: "text-[#EDE8DB]",
+    isDark: true,
     neighbors: { down: "home", left: "about", right: "projects" },
   },
   contact: {
     component: Contact,
-    bg: "bg-gray-800",
-    textColor: "text-gray-100",
+    bg: "bg-[#1B1916]",
+    textColor: "text-[#EDE8DB]",
+    isDark: true,
     neighbors: { up: "home", left: "about", right: "projects" },
   },
   about: {
     component: About,
-    bg: "bg-gray-800",
-    textColor: "text-gray-100",
+    bg: "bg-[#1B1916]",
+    textColor: "text-[#EDE8DB]",
+    isDark: true,
     neighbors: { up: "skills", down: "contact", right: "home" },
   },
   projects: {
     component: Projects,
-    bg: "bg-gray-800",
-    textColor: "text-gray-100",
+    bg: "bg-[#1B1916]",
+    textColor: "text-[#EDE8DB]",
+    isDark: true,
     neighbors: { up: "skills", down: "contact", left: "home" },
   },
 };

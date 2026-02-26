@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
 import { ArrowButton } from "./components/arrow-button";
 import { LanguageSwitcher } from "./components/language-switcher";
 import { Direction, pages } from "./pages";
@@ -18,14 +17,13 @@ const slideVariants = {
 };
 
 export function App() {
-  const { t } = useTranslation();
   const [pageId, setPageId] = useState("home");
   const [direction, setDirection] = useState<Direction>("right");
 
   const page = pages[pageId];
   const PageComponent = page.component;
   const { neighbors } = page;
-  const isDark = page.bg.includes("200");
+  const isDark = page.isDark;
 
   const navigate = useCallback((dir: Direction, target: string) => {
     setDirection(dir);
@@ -73,14 +71,11 @@ export function App() {
 
       <LanguageSwitcher dark={isDark} />
 
-      <p className={`absolute bottom-4 left-1/2 -translate-x-1/2 text-sm opacity-60 whitespace-nowrap pointer-events-none ${isDark ? "text-gray-900" : "text-white"}`}>
-        {t("nav.keyboardHint")}
-      </p>
-
       {neighbors.up && (
         <ArrowButton
           direction="up"
           dark={isDark}
+          label={neighbors.up}
           onClick={() => navigate("up", neighbors.up!)}
         />
       )}
@@ -88,6 +83,7 @@ export function App() {
         <ArrowButton
           direction="down"
           dark={isDark}
+          label={neighbors.down}
           onClick={() => navigate("down", neighbors.down!)}
         />
       )}
@@ -95,6 +91,7 @@ export function App() {
         <ArrowButton
           direction="left"
           dark={isDark}
+          label={neighbors.left}
           onClick={() => navigate("left", neighbors.left!)}
         />
       )}
@@ -102,6 +99,7 @@ export function App() {
         <ArrowButton
           direction="right"
           dark={isDark}
+          label={neighbors.right}
           onClick={() => navigate("right", neighbors.right!)}
         />
       )}

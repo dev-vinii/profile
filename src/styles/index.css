@@ -1,13 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --paper: #ede8db;
+  --ink: #1b1916;
+  --rust: #c84120;
+  --fog: #95897d;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
-  font-family: "Comic Neue", cursive;
+  font-family: "Syne", sans-serif;
+}
+
+.font-mono,
+[class*="font-mono"] {
+  font-family: "Syne Mono", monospace;
 }
 
 html,
@@ -134,37 +146,29 @@ table {
 }
 
 /* Custom Scrollbar Styling */
-/* Webkit browsers (Chrome, Safari, Edge) */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 36, 77, 0.3);
-  border-radius: 4px;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(200, 65, 32, 0.35);
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-::-webkit-scrollbar-thumb:active {
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(200, 65, 32, 0.6);
 }
 
 ::-webkit-scrollbar-corner {
-  background: rgba(0, 36, 77, 0.3);
+  background: transparent;
 }
 
-/* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 36, 77, 0.3);
+  scrollbar-color: rgba(200, 65, 32, 0.35) transparent;
 }

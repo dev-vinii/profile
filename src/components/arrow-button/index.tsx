@@ -23,33 +23,77 @@ const pulseAxis: Record<Direction, { x?: number[]; y?: number[] }> = {
   right: { x: [0, 4, 0] },
 };
 
+// Layout: which flex direction and whether label renders before or after icon
+const layout: Record<Direction, { flex: string; labelFirst: boolean }> = {
+  up: { flex: "flex-col items-center gap-1", labelFirst: false },
+  down: { flex: "flex-col items-center gap-1", labelFirst: true },
+  left: { flex: "flex-row items-center gap-2", labelFirst: false },
+  right: { flex: "flex-row items-center gap-2", labelFirst: true },
+};
+
 interface ArrowButtonProps {
   direction: Direction;
   onClick: () => void;
   dark?: boolean;
+  label?: string;
 }
 
-export function ArrowButton({ direction, onClick, dark }: ArrowButtonProps) {
+export function ArrowButton({ direction, onClick, dark, label }: ArrowButtonProps) {
+  const color = dark ? "#EDE8DB" : "#1B1916";
+  const { flex, labelFirst } = layout[direction];
+
+  const Icon = (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d={chevronPaths[direction]} />
+    </svg>
+  );
+
+  const Label = label ? (
+    <span
+      style={{
+        fontFamily: "'Syne Mono', monospace",
+        fontSize: "9px",
+        letterSpacing: "0.25em",
+        textTransform: "uppercase",
+        color,
+      }}
+    >
+      {label}
+    </span>
+  ) : null;
+
   return (
     <motion.button
       onClick={onClick}
       animate={pulseAxis[direction]}
-      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      className={`fixed ${positionClasses[direction]} p-4 hover:scale-125 active:scale-125 transition-transform cursor-pointer z-10 ${dark ? "text-gray-900" : "text-white"}`}
+      transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+      whileHover={{ opacity: 0.9, scale: 1.08 }}
+      whileTap={{ scale: 0.9 }}
+      className={`fixed ${positionClasses[direction]} p-3 cursor-pointer z-10`}
+      style={{ opacity: 0.55 }}
     >
-      <svg
-        width="36"
-        height="36"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="opacity-80"
-      >
-        <path d={chevronPaths[direction]} />
-      </svg>
+      <div className={`flex ${flex}`}>
+        {labelFirst ? (
+          <>
+            {Label}
+            {Icon}
+          </>
+        ) : (
+          <>
+            {Icon}
+            {Label}
+          </>
+        )}
+      </div>
     </motion.button>
   );
 }
